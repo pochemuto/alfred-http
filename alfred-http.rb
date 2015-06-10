@@ -249,7 +249,7 @@ statuses = [
 
 
 matches = statuses.select do |status|
-  status[:status_code].to_s.include? ARGV.first
+  status[:status_code].to_s.include? ARGV.first or status[:reason_phrase].downcase.include? ARGV.first.downcase 
 end
 
 require "rexml/document"
